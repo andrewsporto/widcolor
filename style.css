@@ -1,0 +1,139 @@
+/* WidColor v2 — estilos da página de configuração */
+
+.widcolor-settings {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding: 16px;
+  max-width: 720px;
+}
+
+.widcolor-settings__header h3 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+.widcolor-settings__header p {
+  margin: 0 0 20px;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.widcolor-settings__section {
+  margin-bottom: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  padding: 16px;
+}
+
+.widcolor-settings__section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.widcolor-pipeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.widcolor-empty {
+  color: #6b7280;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.widcolor-pipeline-row {
+  display: grid;
+  grid-template-columns: 1fr 40px 100px 80px;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.widcolor-pipeline-name {
+  font-size: 14px;
+  color: #111827;
+}
+
+.widcolor-pipeline-color {
+  width: 40px;
+  height: 32px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0;
+  background: transparent;
+}
+
+.widcolor-pipeline-color-text {
+  width: 100%;
+  height: 32px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 0 8px;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 12px;
+}
+
+.widcolor-pipeline-clear {
+  height: 32px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  color: #6b7280;
+}
+.widcolor-pipeline-clear:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.widcolor-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.widcolor-preview-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #f3f4f6;
+}
+
+.widcolor-preview-row__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  flex-shrink: 0;
+}
+
+.widcolor-preview-row__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.widcolor-preview-row__pipeline {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.widcolor-preview-row__msg {
+  font-size: 12px;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,6 @@
+{
+  "widget.name": "WidColor — Cor por Funil",
+  "widget.description": "Pinta o fundo de cada conversa do inbox com uma cor associada ao funil do lead, para identificação visual rápida.",
+  "widget.short_description": "Pinta o inbox com a cor do funil de cada lead.",
+  "settings.pipeline_colors": "Cores dos funis"
+}

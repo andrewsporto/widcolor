@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(unzip -l WidColor.zip)",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('D:/Documentos/Aplicativos/WidColor/manifest.json','utf8'\\)\\)\")",
+      "Bash(node --check D:/Documentos/Aplicativos/WidColor/script.js)",
+      "Bash(node --check \"D:/Documentos/Aplicativos/WidColor/script.js\")",
+      "Bash(node *)",
+      "Bash(unzip -p \"D:/Documentos/Aplicativos/WidColor/WidColor.zip\" i18n/pt.json)"
+    ]
+  }
+}

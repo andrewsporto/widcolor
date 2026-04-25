@@ -1,0 +1,24 @@
+<div class="widcolor-settings">
+
+  <div class="widcolor-settings__header">
+    <h3>WidColor — Cor por Funil</h3>
+    <p>Escolha uma cor para cada funil. As linhas do inbox serão pintadas com essa cor (translúcida) para identificação visual rápida. Funis sem cor não recebem pintura.</p>
+  </div>
+
+  <div class="widcolor-settings__section">
+    <div class="widcolor-settings__section-title">Funis da conta</div>
+    <div id="widcolor_pipeline_list" class="widcolor-pipeline-list">
+      <div class="widcolor-empty">Carregando funis...</div>
+    </div>
+  </div>
+
+  <div class="widcolor-settings__section">
+    <div class="widcolor-settings__section-title">Pré-visualização</div>
+    <div id="widcolor_preview" class="widcolor-preview"></div>
+  </div>
+
+  <!-- Campo escondido lido pelo framework do Kommo no save.
+       O JS sincroniza o JSON aqui antes do botão Salvar ser clicado. -->
+  <input type="hidden" id="widcolor_pipeline_colors" data-setting="pipeline_colors" name="pipeline_colors" value="{}">
+
+</div>

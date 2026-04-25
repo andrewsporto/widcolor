@@ -1,0 +1,6 @@
+{
+  "widget.name": "WidColor — Pipeline Color",
+  "widget.description": "Tints each inbox conversation with a color associated with the lead's pipeline, for quick visual identification.",
+  "widget.short_description": "Tint the inbox with each lead's pipeline color.",
+  "settings.pipeline_colors": "Pipeline colors"
+}

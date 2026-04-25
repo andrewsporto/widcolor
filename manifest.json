@@ -1,0 +1,29 @@
+{
+  "widget": {
+    "name": "widget.name",
+    "description": "widget.description",
+    "short_description": "widget.short_description",
+    "code": "widcolor",
+    "version": "2.0.0",
+    "icon": "/images/logo.png",
+    "settings_page": "/templates/settings.html",
+    "support": {
+      "link": "https://example.com",
+      "email": "suporte@example.com"
+    },
+    "delivery": 0,
+    "is_payment": false
+  },
+  "locations": [
+    "chats",
+    "settings"
+  ],
+  "settings": {
+    "pipeline_colors": {
+      "name": "settings.pipeline_colors",
+      "type": "text",
+      "required": false,
+      "default": "{}"
+    }
+  }
+}
