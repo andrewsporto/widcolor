@@ -8,14 +8,13 @@
     "icon": "/images/logo.png",
     "settings_page": "/templates/settings.html",
     "support": {
-      "link": "https://example.com",
+      "link": "https://github.com/andrewsporto/widcolor",
       "email": "suporte@example.com"
     },
     "delivery": 0,
     "is_payment": false
   },
   "locations": [
-    "chats",
     "settings"
   ],
   "settings": {
