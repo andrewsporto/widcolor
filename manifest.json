@@ -5,8 +5,8 @@
     "short_description": "widget.short_description",
     "code": "widcolor",
     "version": "2.0.0",
-    "icon": "/images/logo.png",
-    "settings_page": "/templates/settings.html",
+    "icon": "images/logo.png",
+    "settings_page": "templates/settings.html",
     "support": {
       "link": "https://example.com",
       "email": "suporte@example.com"
