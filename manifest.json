@@ -12,7 +12,8 @@
       "email": "suporte@example.com"
     },
     "delivery": 0,
-    "is_payment": false
+    "is_payment": false,
+    "client_uuid": "efcbb65d-0105-4258-a668-22fd3b5db6de"
   },
   "locations": [
     "settings",
