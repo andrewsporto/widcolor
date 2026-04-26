@@ -384,6 +384,21 @@ define(['jquery'], function ($) {
         render: function () {
           var pipelines = PipelineRegistry.list();
           var colors = ColorMap.all();
+          var persistedJson = JSON.stringify(colors);
+
+          // Sync persisted colors into the hidden field as soon as it appears,
+          // so a fast Save (before the UI is fully rendered) doesn't wipe config.
+          function syncPersistedToHidden() {
+            var $h = $('#widcolor_pipeline_colors');
+            if ($h.length) { $h.val(persistedJson); return true; }
+            return false;
+          }
+          if (!syncPersistedToHidden()) {
+            var attempts = 0;
+            var iv = setInterval(function () {
+              if (syncPersistedToHidden() || ++attempts >= 20) clearInterval(iv);
+            }, 25);
+          }
 
           // Renderiza no template (settings.html já será renderizado pelo Kommo;
           // aqui populamos as áreas dinâmicas após o render).

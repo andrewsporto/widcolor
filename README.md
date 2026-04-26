@@ -1,97 +1,55 @@
-# 🎨 WidColor - Widget Kommo
+# WidColor — Widget Kommo
 
-Widget de personalização de cores para o Kommo (antigo amoCRM).
+Widget que pinta o fundo das conversas do inbox da Kommo (e o cabeçalho do chat aberto) com uma cor configurável por funil. Ajuda a identificar visualmente, em segundos, de qual funil cada conversa pertence.
 
-Permite customizar as cores dos cards de Leads, Contatos e Empresas, criando uma experiência visual única e adaptada ao seu fluxo de trabalho.
+## Funcionalidades
 
-## 📋 Funcionalidades
+- Cor por funil configurada manualmente nas settings do widget
+- Fundo translúcido (~18%) — mantém legibilidade do texto
+- Pinta a lista do inbox e o cabeçalho da conversa aberta
+- Funis sem cor configurada não recebem pintura
+- Cache local de mapeamento `lead → funil` (TTL 10min)
+- Configuração da conta inteira (todos os usuários veem as mesmas cores)
 
-- **4 cores customizáveis**: Primária, Secundária, Destaque e Fundo
-- **Aplicação seletiva**: Ative/desative por tipo de entidade (Leads, Contatos, Empresas)
-- **Preview em tempo real**: Visualize as cores antes de salvar
-- **Botão na sidebar**: Acesse rapidamente pelo card
-- **MutationObserver**: Estilos re-aplicados automaticamente ao atualizar o card
+## Instalação
 
-## 📁 Estrutura do Projeto
+1. Compactar todos os arquivos da raiz em `WidColor.zip` (com `manifest.json` na raiz do zip).
+2. Na Kommo: **Configurações → Integrações → Criar integração** (privada).
+3. Preencher: nome, descrição, redirect URI (qualquer URL HTTPS válida — não é usada), upload do `.zip`, escopo (acesso a leads).
+4. Salvar e instalar o widget na conta.
+5. Abrir as configurações do widget → escolher uma cor pra cada funil → Salvar.
+
+## Configuração
+
+A página de settings lista todos os funis da sua conta. Para cada funil:
+- **Color picker**: escolha uma cor
+- **Campo hex**: edite o hex diretamente se preferir
+- **Limpar**: remove a cor (funil deixa de ser pintado)
+
+## Estrutura
 
 ```
 WidColor/
-├── manifest.json              # Manifesto do widget (Kommo)
-├── script.js                  # Lógica principal do widget
-├── style.css                  # Estilos base + UI de configurações
+├── manifest.json
+├── script.js          # 6 módulos: Registry, ColorMap, Resolver, InboxPainter, ChatHeaderPainter, SettingsUI
+├── style.css          # estilos da página de settings
 ├── images/
-│   ├── logo.svg               # Logo vetorial
-│   └── logo.png               # Logo raster (120x120)
 ├── i18n/
-│   ├── pt.json                # Tradução Português (Brasil)
-│   └── en.json                # Tradução Inglês
-├── templates/
-│   └── settings.html          # Templates de configurações e modal
-└── README.md
+└── templates/
+    └── settings.html
 ```
 
-## 🚀 Instalação
+## Versão
 
-### Via Kommo Marketplace
-1. Acesse **Configurações** → **Widgets**
-2. Busque por **WidColor**
-3. Clique em **Instalar**
+**2.0.0** — Reescrito do zero. Foco na pintura do inbox por funil. Removidas as 4 cores genéricas da v1.
 
-### Via Upload Manual
-1. Compacte todos os arquivos em um `.zip`
-2. Acesse **Configurações** → **Widgets** → **Upload Widget**
-3. Selecione o arquivo `.zip`
-4. Siga as instruções de instalação
+## Smoke checklist (antes de subir nova versão)
 
-### Via Desenvolvimento Local
-1. Hospede os arquivos em um servidor HTTPS acessível
-2. Registre o widget no Kommo via API
-3. Configure a URL do widget no registro
-
-## ⚙️ Configuração
-
-Após instalar, acesse as configurações do widget:
-
-| Configuração | Tipo | Padrão | Descrição |
-|---|---|---|---|
-| Cor Primária | Color | `#3498db` | Cor principal (bordas, botões) |
-| Cor Secundária | Color | `#2ecc71` | Tags e elementos secundários |
-| Cor de Destaque | Color | `#e74c3c` | Badges e alertas |
-| Cor de Fundo | Color | `#2c3e50` | Fundo de elementos especiais |
-| Leads | Checkbox | ✅ | Aplicar nos cards de Leads |
-| Contatos | Checkbox | ✅ | Aplicar nos cards de Contatos |
-| Empresas | Checkbox | ✅ | Aplicar nos cards de Empresas |
-
-## 🛠️ Desenvolvimento
-
-### Requisitos
-- Navegador moderno com suporte a ES6+
-- Kommo (conta com acesso a widgets)
-
-### Modificando o Widget
-1. Edite os arquivos conforme necessário
-2. Teste localmente se possível
-3. Faça upload da nova versão no Kommo
-
-### Callbacks do Widget
-O widget implementa os seguintes callbacks do ciclo de vida Kommo:
-
-- `render()` — Renderização inicial, aplica cores ao card
-- `init()` — Inicialização, carrega configurações
-- `bind_actions()` — Liga eventos, inicia MutationObserver
-- `settings()` — Página de configurações
-- `destroy()` — Limpeza ao remover o widget
-- `onSave()` — Após salvar configurações
-
-## 📝 Versão
-
-- **1.0.0** — Versão inicial
-  - Personalização de 4 cores
-  - Aplicação seletiva por entidade
-  - Preview em tempo real
-  - Botão na sidebar do card
-  - i18n (PT-BR, EN)
-
-## 📄 Licença
-
-Este projeto é proprietário. Todos os direitos reservados.
+- [ ] `node --check script.js` passa
+- [ ] `JSON.parse(manifest.json)` passa
+- [ ] Após upload e install: `[WIDCOLOR]` logs aparecem no console em `/chats/...`
+- [ ] Settings UI lista todos os funis da conta
+- [ ] Salvar uma cor → linha do inbox correspondente é pintada
+- [ ] Limpar cor → linha volta ao fundo padrão
+- [ ] Chat aberto: header pintado com mesma cor do funil
+- [ ] Recarregar página: cores persistem

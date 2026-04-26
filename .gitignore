@@ -1,2 +1,13 @@
-widcolor.zip
-demo.html
+# Build artifacts (uploaded as release assets, not committed)
+WidColor.zip
+
+# Internal debug
+erros/
+
+# Claude Code local settings
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

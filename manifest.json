@@ -3,21 +3,21 @@
     "name": "widget.name",
     "description": "widget.description",
     "short_description": "widget.short_description",
-    "code": "widcolor",
-    "version": "2.0.0",
+    "code": "widcolor_v2",
+    "version": "2.0.1",
     "icon": "/images/logo.png",
     "settings_page": "/templates/settings.html",
     "support": {
-      "link": "https://github.com/andrewsporto/widcolor",
+      "link": "https://example.com",
       "email": "suporte@example.com"
     },
     "delivery": 0,
     "is_payment": false,
-    "client_uuid": "efcbb65d-0105-4258-a668-22fd3b5db6de"
+    "client_uuid": "7a7cf034-e53c-45e6-a84a-9dac1dab6045"
   },
   "locations": [
-    "settings",
-    "chats"
+    "everywhere",
+    "settings"
   ],
   "settings": {
     "pipeline_colors": {
